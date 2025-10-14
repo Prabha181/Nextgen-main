@@ -411,17 +411,17 @@ function Support() {
     <section className="w-full bg-gradient-to-b from-[#f5faff] to-[#e8f4ff] py-12 md:py-20 px-4">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1c4268] mb-8">
+          <div className="text-3xl md:text-4xl font-bold text-[#1c4268] mb-10">
             <motion.h2
-              className="text-4xl md:text-5xl font-bold text-[#1c4268] mb-4 relative inline-block cursor-pointer group"
+              className="text-4xl md:text-5xl font-bold text-[#1c4268] mt-4 relative inline-block cursor-pointer group"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
               Explore Our Services
-              <span className="absolute left-0 -bottom-3 h-1 bg-[#1c4268] w-0 transition-all duration-500 group-hover:w-full"></span>
+              <span className="absolute left-0 -bottom-3 h-1 bg-[#245586] w-0 transition-all duration-500 group-hover:w-full"></span>
             </motion.h2>
-          </h2>
+          </div>
 
           <div className="relative inline-block w-full max-w-lg mx-auto">
             <button
@@ -558,7 +558,7 @@ function Support() {
                 {/* Right Image */}
                 <div className="relative flex-1 h-[380px] overflow-hidden group">
                   <Image
-                    src={displayService.image.src}
+                    src={displayService.image}  // <-- pass the imported image object, not .src
                     alt={displayService.title}
                     className="w-full h-full object-cover transition-transform duration-[2500ms] ease-out group-hover:scale-110"
                   />

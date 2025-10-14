@@ -1,106 +1,176 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
+import { motion } from "framer-motion";
+
+const blogs = [
+  {
+    title: "From Idea to Impact: How Startups Can Scale Smartly in India",
+    date: "October 2025",
+    category: "Industry Insights",
+    readingTime: "5 Minutes",
+    tags: ["Startups", "Innovation", "India"],
+    description:
+      "With Amit Shah inaugurating Startup Conclave 2025 in Gandhinagar, the spotlight is on India's booming startup ecosystem. Learn how conclaves create opportunities and visibility for entrepreneurs.",
+    color: "#3278bd"
+  },
+  {
+    title: "Funding Decoded: Navigating India's Startup Investment Landscape",
+    date: "September 2025",
+    category: "Funding Strategy",
+    readingTime: "6 Minutes",
+    tags: ["Funding", "Venture Capital", "Growth"],
+    description:
+      "Discover the latest trends in Indian startup funding, from seed capital to Series A rounds — and how founders can attract the right investors with clear vision and strategy.",
+    color: "#2e6dac"
+  },
+  {
+    title: "Innovation Meets Impact: Tech Trends Defining 2025",
+    date: "August 2025",
+    category: "Technology",
+    readingTime: "4 Minutes",
+    tags: ["AI", "Innovation", "Future"],
+    description:
+      "Explore how technology is reshaping industries — from AI-driven solutions to sustainable innovations leading the global transformation.",
+    color: "#245586"
+  },
+];
 
 export default function Blog() {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
   return (
-    <section className="bg-white w-full min-h-screen p-7 md:p-12">
-      <div className="max-w-6xl mx-auto">
-        {/* Simple Header */}
-        <div className="mb-12 md:mb-20">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#1c4268] mt-4 relative inline-block cursor-pointer group">
-            Insights
+    <section className="w-full min-h-screen py-20 px-6" style={{ backgroundColor: '#f8f9fa' }}>
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="mb-20">
+          <div className="inline-block mb-3">
+          </div>
+          <motion.h2
+            className="text-4xl md:text-5xl font-bold text-[#1c4268] mt-4 relative inline-block cursor-pointer group"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Latest Insights
             <span className="absolute left-0 -bottom-3 h-1 bg-[#245586] w-0 transition-all duration-500 group-hover:w-full"></span>
-          </h2>
-          <p className="text-gray-600 text-lg md:text-xl max-w-3xl mx-auto font-medium leading-relaxed mt-4">
-            Ideas that inspire, stories that shape the future
+          </motion.h2>
+          <p className="text-xl mt-8" style={{ color: '#5b93ca' }}>
+            Explore thought leadership and industry perspectives
           </p>
         </div>
 
-        {/* Main Blog Card - Split Design */}
-        <Link
-          href={{
-            pathname: "/blogview",
-            query: {
-              title: "From Idea to Impact: How Startups Can Scale Smartly in India"
-            }
-          }}
-          className="block"
-        >
-          <div className="grid md:grid-cols-2 gap-0 group cursor-pointer">
-            {/* Left Side - Visual Block */}
-            <div className="bg-[#1c4268] p-10 md:p-16 flex flex-col justify-between min-h-[400px] md:min-h-[600px] duration-700 relative overflow-hidden">
-              {/* Decorative Pattern */}
-              <div className="absolute top-0 right-0 w-64 h-64 opacity-10">
-                <svg viewBox="0 0 200 200" className="w-full h-full">
-                  <circle cx="100" cy="100" r="80" fill="none" stroke="white" strokeWidth="0.5" />
-                  <circle cx="100" cy="100" r="60" fill="none" stroke="white" strokeWidth="0.5" />
-                  <circle cx="100" cy="100" r="40" fill="none" stroke="white" strokeWidth="0.5" />
-                  <circle cx="100" cy="100" r="20" fill="none" stroke="white" strokeWidth="0.5" />
-                </svg>
-              </div>
-
-              <div>
-                <span className="inline-block text-white/80 text-xs font-medium tracking-widest uppercase mb-4">
-                  October 2025
-                </span>
-                <div className="w-16 h-1 bg-white/30 mb-8"></div>
-
-                {/* Stats/Info Cards */}
-                <div className="mt-12 space-y-6">
-                  <div className="bg-white/10 backdrop-blur-sm p-5 rounded-lg border border-white/20 hover:bg-[#2e6dac]/30 transition-colors duration-300">
-                    <p className="text-white/60 text-xs uppercase tracking-wide mb-2">Article Type</p>
-                    <p className="text-white text-xl font-semibold">Industry Insights</p>
+        {/* Blog Grid */}
+        <div className="grid md:grid-cols-2 gap-8">
+          {blogs.map((blog, index) => (
+            <Link
+              key={index}
+              href={{
+                pathname: "/blogview",
+                query: { title: blog.title },
+              }}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              className="group block"
+            >
+              <div
+                className="overflow-hidden transition-all duration-500 rounded-lg shadow-lg"
+                style={{
+                  backgroundColor: '#1c4268',
+                  borderLeft: hoveredIndex === index ? `6px solid ${blog.color}` : '6px solid transparent',
+                  padding: '2rem',
+                  transform: hoveredIndex === index ? 'translateX(8px)' : 'translateX(0)'
+                }}
+              >
+                {/* Top Section */}
+                <div className="flex items-start justify-between mb-6">
+                  <div>
+                    <span
+                      className="inline-block text-xs font-bold tracking-wider uppercase mb-3"
+                      // style={{ color: blog.color }}
+                    >
+                      {blog.category}
+                    </span>
+                    <div className="flex items-center gap-4 text-sm" style={{ color: '#ebf2f8' }}>
+                      <span>{blog.date}</span>
+                      <span>•</span>
+                      <span>{blog.readingTime}</span>
+                    </div>
                   </div>
-                  <div className="bg-white/10 backdrop-blur-sm p-5 rounded-lg border border-white/20 hover:bg-[#3278bd]/30 transition-colors duration-300">
-                    <p className="text-white/60 text-xs uppercase tracking-wide mb-2">Reading Time</p>
-                    <p className="text-white text-xl font-semibold">5 Minutes</p>
+                  <div
+                    className="w-12 h-12 flex items-center justify-center rounded-full transition-all duration-500"
+                    style={{
+                      backgroundColor: hoveredIndex === index ? blog.color : '#ffffff',
+                    }}
+                  >
+                    <svg
+                      className="w-5 h-5 transition-transform duration-500"
+                      style={{
+                        transform: hoveredIndex === index ? 'rotate(-45deg)' : 'rotate(0deg)',
+                        stroke: hoveredIndex === index ? '#ffffff' : blog.color
+                      }}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
                   </div>
                 </div>
-              </div>
 
-              <div className="space-y-4 relative z-10">
-                <div className="flex items-center gap-3 text-white/70 text-sm">
-                  <span>Startups</span>
-                  <span>•</span>
-                  <span>Innovation</span>
-                  <span>•</span>
-                  <span>India</span>
-                </div>
-                <p className="text-white/90 text-lg font-light">
-                  Exploring the future of entrepreneurship in India&apos;s dynamic startup landscape
-                </p>
-              </div>
-            </div>
-
-            {/* Right Side - Content */}
-            <div className="bg-gray-50 p-10 md:p-16 flex flex-col justify-between min-h-[400px] md:min-h-[600px] group-hover:bg-gray-100 transition-colors duration-700">
-              <div>
-                <h2 className="font-['Be_Vietnam_Pro'] font-semibold text-3xl md:text-5xl text-[#245586] mb-8 leading-tight group-hover:text-[#1c4268] transition-colors duration-500">
-                  From Idea to Impact: How Startups Can Scale Smartly in India
+                {/* Title */}
+                <h2
+                  className="text-2xl font-bold mb-4 leading-tight transition-colors duration-300"
+                  style={{ color: '#ffffff' === index ? blog.color : '#ffffff' }}
+                >
+                  {blog.title}
                 </h2>
 
-                <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-8">
-                  With Amit Shah inaugurating Startup Conclave 2025 in Gandhinagar, the spotlight is on India&apos;s booming startup ecosystem. Read how conclaves create funding opportunities, networking advantages, and global visibility, making them essential for every ambitious entrepreneur.
+                {/* Description */}
+                <p className="text-base leading-relaxed mb-6" style={{ color: '#d0d0d0' }}>
+                  {blog.description}
                 </p>
-              </div>
 
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-500">5 minute read</span>
-                <div className="flex items-center gap-2 text-[#3278bd] font-medium">
-                  <span>Read Article</span>
-                  <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2">
+                  {blog.tags.map((tag, i) => (
+                    <span
+                      key={i}
+                      className="text-xs font-medium px-3 py-1 rounded-full"
+                      style={{
+                        backgroundColor: blog.color,
+                        color: '#ffffff'
+                      }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-              </div>
-            </div>
-          </div>
-        </Link>
 
-        {/* Bottom Navigation */}
-        <div className="mt-12 flex items-center justify-between text-sm">
-          <button className="text-gray-400 hover:text-black transition-colors">← Previous</button>
-          <span className="text-gray-400">1 of 1</span>
-          <button className="text-gray-400 hover:text-black transition-colors">Next →</button>
+                {/* Bottom Border Animation */}
+                <div
+                  className="h-0.5 mt-6 transition-all duration-500"
+                  style={{
+                    backgroundColor: "#bfd5eb",
+                    width: hoveredIndex === index ? '100%' : '0%'
+                  }}
+                ></div>
+              </div>
+            </Link>
+          ))}
+        </div>
+
+        {/* Load More Section */}
+        <div className="mt-16 text-center">
+          <button
+            className="px-10 py-4 font-semibold text-lg transition-all duration-300 hover:scale-105"
+            style={{
+              backgroundColor: '#245586',
+              color: '#ffffff'
+            }}
+          >
+            View All Articles
+          </button>
         </div>
       </div>
     </section>

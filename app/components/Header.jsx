@@ -1,14 +1,12 @@
 "use client";
 
-import { ChevronDownIcon, Menu, X } from "lucide-react";
+import { ChevronDownIcon, Menu, X, Phone } from "lucide-react";
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import Image from "next/image";
-import { Phone } from "lucide-react";
-
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"], weight: ["500", "600", "700"] });
-
 
 export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -23,31 +21,40 @@ export const Header = () => {
   ];
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <header
-      className={`fixed w-full h-20 z-50 transition-all duration-300 ${scrolled ? "backdrop-blur-md bg-[#1c4268] shadow-md rounded-full mt-4" : "bg-[#1c4268]"
+      className={`fixed top-0 left-0 w-full z-50 bg-[#1c4268] transition-all duration-300 ${scrolled ? "shadow-md rounded-full mt-2" : ""
         }`}
     >
-      <div className="flex items-center justify-between mt-3 h-14 px-6 sm:px-10 lg:px-20">
-        {/* Logo on Left */}
+      <div className="flex items-center justify-between h-20 px-6 sm:px-10 lg:px-20">
+        {/* Logo */}
         <a href="/" className="flex-shrink-0">
-          <Image
-            src="/images/whiteLogo.png"
-            alt="Logo"
-            width={160}
-            height={60}
-            className="w-24 sm:w-28 lg:w-52 object-contain"
-          />
+          <motion.div
+            animate={{
+              y: [0, -6, 0],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            <Image
+              src="/images/whiteLogo.png"
+              alt="Logo"
+              width={160}
+              height={60}
+              className="w-24 sm:w-28 lg:w-52 object-contain"
+            />
+          </motion.div>
         </a>
 
-        {/* Right side items */}
+        {/* Right Side */}
         <div className="flex items-center gap-4 md:gap-8">
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
@@ -62,7 +69,7 @@ export const Header = () => {
               </a>
             ))}
 
-            {/* More dropdown */}
+            {/* More Dropdown */}
             <div
               className="relative"
               onMouseEnter={() => setIsMoreOpen(true)}
@@ -71,15 +78,16 @@ export const Header = () => {
               <button className="flex items-center gap-1 text-white font-medium text-[14px]">
                 More <ChevronDownIcon className="h-3 w-3" />
               </button>
+
               <div
-                className={`absolute left-0 top-full mt-0 w-40 text-white text-bolder bg-transparent rounded-md  transition-all duration-200 ${isMoreOpen
+                className={`absolute left-0 top-full mt-0 w-40 text-white rounded-md transition-all duration-200 ${isMoreOpen
                   ? "opacity-100 visible translate-y-0"
                   : "opacity-0 invisible -translate-y-1"
                   }`}
               >
                 <a
                   href="/blog"
-                  className="block px-4 py-2 text-sm text-white"
+                  className="block px-4 py-2 text-sm"
                 >
                   Blog
                 </a>
@@ -87,23 +95,18 @@ export const Header = () => {
             </div>
           </nav>
 
-          {/* Desktop CTA */}
+          {/* Call Button */}
           <style>{`
-        @keyframes ring {
-          0% { transform: rotate(0deg); }
-          10% { transform: rotate(15deg); }
-          20% { transform: rotate(-15deg); }
-          30% { transform: rotate(15deg); }
-          40% { transform: rotate(-15deg); }
-          50% { transform: rotate(0deg); }
-          100% { transform: rotate(0deg); }
-        }
-        
-        .animate-ring {
-          animation: ring 2s ease-in-out infinite;
-          transform-origin: center bottom;
-        }
-      `}</style>
+            @keyframes ring {
+              0%, 50%, 100% { transform: rotate(0deg); }
+              10%, 30% { transform: rotate(15deg); }
+              20%, 40% { transform: rotate(-15deg); }
+            }
+            .animate-ring {
+              animation: ring 2s ease-in-out infinite;
+              transform-origin: center bottom;
+            }
+          `}</style>
 
           <a
             href="tel:9974792224"
@@ -113,10 +116,9 @@ export const Header = () => {
             9974792224
           </a>
 
-
           {/* Mobile Menu Button */}
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={() => setIsMobileMenuOpen((s) => !s)}
             className="md:hidden p-2 text-white"
           >
             {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -137,7 +139,7 @@ export const Header = () => {
         className={`md:hidden fixed top-0 right-0 h-full w-72 bg-gradient-to-r from-[#1e4976] to-[#4a7ba7] z-50 transform transition-transform duration-300 ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
       >
-        <div className="p-5">
+        <div className="p-5 relative">
           <button
             onClick={() => setIsMobileMenuOpen(false)}
             className="absolute top-5 right-5 text-white"
