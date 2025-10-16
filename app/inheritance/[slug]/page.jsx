@@ -2,16 +2,17 @@
 'use client';
 import Link from "next/link";
 import Image from 'next/image';
+import Homebg from "../../assets/home-bg.png";
 import { notFound } from "next/navigation";
 import { businessTypes } from "../data/businessData";
 import { Header } from "@/app/components/Header";
 import HomeBanner from '../../assets/HomeBanner.webp';
-import { 
-  CheckCircle, 
-  FileText, 
-  Clock, 
-  Users, 
-  Shield, 
+import {
+  CheckCircle,
+  FileText,
+  Clock,
+  Users,
+  Shield,
   TrendingUp,
   ArrowRight,
   Star,
@@ -44,41 +45,45 @@ export default function InheritancePage({ params }) {
         top: offsetPosition,
         behavior: "smooth"
       });
-      
+
       window.history.pushState(null, null, `#${targetId}`);
     }
   };
 
   return (
     <>
-      <Header/>
+      <Header />
       <div className="min-h-screen bg-white">
         {/* Hero Section */}
 
+        {/* Hero Section */}
+        <section className="relative  pt-40 py-16">
+          {/* Background Image */}
+          <div className="absolute inset-0 bg-[#245586]">
+            <Image
+              src={Homebg}
+              alt="Hero Banner"
+              fill
+              priority
+              className="absolute inset-0 w-full h-full object-cover"
+            />
 
-        
-   
-{/* Hero Section */}
-<section className="relative bg-[#245586]  pt-40 py-16">
-  {/* Background Image */}
-  <div className="absolute inset-0 bg-[#245586]">
-  
-    <div className="absolute inset-0 "></div>
-  </div>
-  
-  <div className="absolute inset-0"></div>
-  <div className="relative max-w-6xl mx-auto px-4 text-center">
-    <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">
-      {business.bigtitlle}
-    </h1>
-    <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed mb-8">
-      {business.description}
-    </p>
-    
-    {/* CTA Buttons */}
-  
-  </div>
-</section>
+            <div className="absolute inset-0 "></div>
+          </div>
+
+          <div className="absolute inset-0"></div>
+          <div className="relative max-w-6xl mx-auto px-4 text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">
+              {business.bigtitlle}
+            </h1>
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed mb-8">
+              {business.description}
+            </p>
+
+            {/* CTA Buttons */}
+
+          </div>
+        </section>
 
         {/* Main Content */}
         <main className="max-w-6xl mx-auto px-4 py-12">
@@ -96,7 +101,7 @@ export default function InheritancePage({ params }) {
                     {business.sideindex?.map((item, index) => {
                       const targetId = item.toLowerCase().replace(/\s+/g, '-');
                       return (
-                        <button 
+                        <button
                           key={index}
                           onClick={(e) => handleNavigationClick(e, targetId)}
                           className="block w-full text-left py-1 px-4 font-medium text-[#1C4268] rounded-lg hover:bg-blue-50 transition-colors text-sm"
@@ -155,13 +160,13 @@ export default function InheritancePage({ params }) {
               )}
 
               {/* Key Features/Advantages */}
-              {(business.content?.keyFeatures || business.content?.keyAdvantages) && (
+              {(business.content?.keybenefits || business.content?.keyAdvantages) && (
                 <section id="key-features" className="bg-white rounded-2xl shadow-lg p-8 scroll-mt-32">
                   <h2 className="text-2xl font-bold text-[#1C4268] mb-6">
-                    {business.content.keyFeatures ? 'Key Features' : 'Key Advantages'}
+                    {business.content.keybenefits ? 'Key Benefits' : 'Key Advantages'}
                   </h2>
                   <div className="grid md:grid-cols-2 gap-0">
-                    {(business.content.keyFeatures || business.content.keyAdvantages)?.map(
+                    {(business.content.keybenefits || business.content.keyAdvantages)?.map(
                       (point, i) => (
                         <div key={i} className="flex items-start gap-4 p-3 rounded-lg hover:bg-gray-50 transition-colors">
                           <div className="flex-shrink-0 mt-2.5 w-2 h-2 rounded-full bg-[#1C4268]"></div>
@@ -174,14 +179,31 @@ export default function InheritancePage({ params }) {
               )}
 
               {/* Benefits */}
-              {business.content?.benefits && (
-                <section id="benefits" className="bg-white rounded-2xl shadow-lg p-8 scroll-mt-32">
-                  <h2 className="text-2xl font-bold text-[#1C4268] mb-6">Benefits</h2>
+              {business.content?.eligibilityRequirements && (
+                <section id="eligibilityRequirements" className="bg-white rounded-2xl shadow-lg p-8 scroll-mt-32">
+                  <h2 className="text-2xl font-bold text-[#1C4268] mb-6">Eligibility Requirements</h2>
                   <div className="grid gap-0">
-                    {business.content.benefits.map((point, i) => (
+                    {business.content.eligibilityRequirements.map((point, i) => (
                       <div key={i} className="flex items-start gap-4 p-2">
                         <div className="flex-shrink-0 mt-2.5 w-2 h-2 rounded-full bg-[#1C4268]"></div>
                         <span className="text-base font-medium leading-relaxed text-[#4B5563]">{point}</span>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {/* Documents Required */}
+              {(business.documentsRequired || business.content?.documentsRequiredDetailed) && (
+                <section id="documents-required" className="bg-white rounded-2xl shadow-lg p-8 scroll-mt-32">
+                  <h2 className="text-2xl font-bold text-[#1C4268] mb-6">Documents Required</h2>
+                  <div className="grid gap-4">
+                    {(business.content?.documentsRequiredDetailed || business.documentsRequired)?.map((doc, i) => (
+                      <div key={i} className="flex items-center gap-4 p-1">
+                        <div className="w-6 h-6 bg-[#1C4268] text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
+                          {i + 1}
+                        </div>
+                        <span className="text-base font-medium text-[#4B5563]">{doc}</span>
                       </div>
                     ))}
                   </div>
@@ -211,39 +233,40 @@ export default function InheritancePage({ params }) {
                 </section>
               )}
 
-              {/* Documents Required */}
-              {(business.documentsRequired || business.content?.documentsRequiredDetailed) && (
-                <section id="documents-required" className="bg-white rounded-2xl shadow-lg p-8 scroll-mt-32">
-                  <h2 className="text-2xl font-bold text-[#1C4268] mb-6">Documents Required</h2>
+              {/* Frequently Asked Questions */}
+              {business.content?.faq && business.content.faq.length > 0 && (
+                <section
+                  id="faq"
+                  className="bg-white rounded-2xl shadow-lg p-8 scroll-mt-32"
+                >
+                  <h2 className="text-2xl font-bold text-[#1C4268] mb-6">
+                    Frequently Asked Questions
+                  </h2>
                   <div className="grid gap-4">
-                    {(business.content?.documentsRequiredDetailed || business.documentsRequired)?.map((doc, i) => (
-                      <div key={i} className="flex items-center gap-4 p-1">
-                        <div className="w-6 h-6 bg-[#1C4268] text-white rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0">
-                          {i + 1}
+                    {business.content.faq.map((faq, i) => (
+                      <div
+                        key={i}
+                        className="p-4 border border-gray-100 rounded-xl hover:shadow-md transition-all"
+                      >
+                        <div className="flex items-start gap-4">
+                          <div className="w-8 h-8 bg-[#1C4268] text-white rounded-full flex items-center justify-center text-sm font-bold mt-1 flex-shrink-0">
+                            {i + 1}
+                          </div>
+                          <div>
+                            <h3 className="text-lg font-semibold text-[#1C4268] mb-1">
+                              {faq.question}
+                            </h3>
+                            <p className="text-base text-[#4B5563] leading-relaxed">
+                              {faq.answer}
+                            </p>
+                          </div>
                         </div>
-                        <span className="text-base font-medium text-[#4B5563]">{doc}</span>
                       </div>
                     ))}
                   </div>
                 </section>
               )}
 
-              {/* Compliance Requirements */}
-              {business.content?.complianceRequirements && (
-                <section id="compliance-requirements" className="bg-white rounded-2xl shadow-lg p-8 scroll-mt-32">
-                  <h2 className="text-2xl font-bold text-[#1C4268] mb-6">Compliance Requirements</h2>
-                  <div className="grid gap-4">
-                    {business.content.complianceRequirements.map((requirement, i) => (
-                      <div key={i} className="flex items-start gap-4 p-1">
-                        <div className="w-6 h-6 bg-[#1C4268] text-white rounded-full flex items-center justify-center text-sm font-bold mt-1 flex-shrink-0">
-                          {i + 1}
-                        </div>
-                        <span className="text-base font-medium leading-relaxed text-[#4B5563]">{requirement}</span>
-                      </div>
-                    ))}
-                  </div>
-                </section>
-              )}
 
               {/* LLP vs Private Comparison */}
               {business.content?.llpVsPrivate && (
@@ -274,23 +297,6 @@ export default function InheritancePage({ params }) {
                   </div>
                 </section>
               )}
-
-              {/* Cost & Processing Time */}
-              <div className="grid md:grid-cols-2 gap-6">
-                {business.content?.cost && (
-                  <section id="cost" className="bg-white rounded-2xl shadow-lg p-6 scroll-mt-32">
-                    <h3 className="text-xl font-bold text-[#1C4268] mb-4">Cost of Registration</h3>
-                    <p className="text-lg font-bold text-[#4B5563]">{business.content.cost}</p>
-                    <p className="text-sm font-medium text-[#4B5563] mt-2">All inclusive pricing with no hidden charges</p>
-                  </section>
-                )}
-
-                <section id="processing-time" className="bg-white rounded-2xl shadow-lg p-6 scroll-mt-32">
-                  <h3 className="text-xl font-bold text-[#1C4268] mb-4">Processing Time</h3>
-                  <p className="text-lg font-bold text-[#4B5563]">{business.processingTime}</p>
-                  <p className="text-sm font-medium text-[#4B5563] mt-2">Average turnaround time</p>
-                </section>
-              </div>
             </div>
           </div>
         </main>

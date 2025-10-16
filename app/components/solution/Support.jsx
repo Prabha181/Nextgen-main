@@ -227,19 +227,23 @@ import { usePathname } from "next/navigation";
 import { motion, useAnimation } from "framer-motion";
 import Private from "../../assets/private-limited.jpg";
 import LLP from "../../assets/llp.jpg";
-import Firm from "../../assets/firm.jpeg";
-import Udyam from "../../assets/Udyam-Registration.jpg";
-import OnePersonCompany from "../../assets/one-person-company.png";
-import Sole from "../../assets/sole-proprietorship.jpg";
+import OPC from "../../assets/opc-registation.jpg";
+import Registered from "../../assets/registered.jpg";
 import GST from "../../assets/gst.jpg";
-// import TaxImage from "../../assets/tax.jpg";
-import AnnualCompliance from "../../assets/annual-compiance-LLP.webp";
-import SeedFunding from "../../assets/seed-funding.webp";
-import VCFunding from "../../assets/VC-funds.png";
-import BusinessLoan from "../../assets/Business-Loan.png";
-import WebDevelopment from "../../assets/web-development.png";
-import DigitalMarketing from "../../assets/digital-marketing.jpeg";
-import ECommerce from "../../assets/E-Commerce.webp";
+import Compliance from "../../assets/compliance.jpeg";
+import Startup from "../../assets/startup.png";
+import MSME from "../../assets/msme.jpg";
+import Code from "../../assets/code.webp";
+import ICEGATE from "../../assets/icegate.jpg";
+import Seed from "../../assets/seed.png";
+import RKVY from "../../assets/rkvy.webp";
+import NAIFF from "../../assets/naiff.webp";
+import PMEGP from "../../assets/pmegp.webp";
+import CGTMSE from "../../assets/cgtmse.jpg"
+import Mudra from "../../assets/mudra.png"
+import SeedSupport from "../../assets/seed-support.png"
+import Project from "../../assets/project.webp";
+import VentureCapital from "../../assets/venture-capital.png";
 import Image from "next/image";
 
 function Support() {
@@ -260,109 +264,143 @@ function Support() {
 
   const businessTypes = [
     {
-      title: "Private Limited",
-      slug: "private-limited",
-      description: "A Private Limited Company provides a secure and scalable foundation for entrepreneurs. It protects personal assets, simplifies raising capital, and builds trust with investors and customers — making it the preferred structure for fast-growing startups.",
+      title: "Private Limited Company",
+      slug: "private-limited-company",
+      description: "A Private Limited Company is a privately held business entity with limited liability protection. It's the most preferred structure for startups and growing businesses, offering legal separation between owners and the company, making it an independent legal entity.",
       category: "registration",
       image: Private,
     },
     {
       title: "Limited Liability Partnership",
       slug: "limited-liability-partnership",
-      description: "An LLP offers the collaborative benefits of a partnership along with legal protection for its partners. It’s suitable for businesses that want shared management responsibilities without risking personal assets.",
+      description: "A Limited Liability Partnership combines the benefits of a partnership and a company. It provides limited liability protection to partners while maintaining the flexibility of a partnership structure. Ideal for professional services and small to medium businesses.",
       category: "registration",
       image: LLP,
     },
     {
-      title: "Partnership Firm (ROF)",
-      slug: "partnership-firm-rof",
-      description: "A Partnership Firm (ROF) is a traditional business structure for two or more individuals who share management responsibilities and profits. It’s ideal for small businesses looking for a simple setup with shared decision-making.",
-      category: "registration",
-      image: Firm,
-    },
-    {
-      title: "Udyam Registration",
-      slug: "udyam-registration",
-      description: "Udyam Registration is the official government registration for Micro, Small, and Medium Enterprises (MSMEs). It enables businesses to access various benefits, subsidies, and incentives designed to support growth and ease of operations.",
-      category: "registration",
-      image: Udyam,
-    },
-    {
-      title: "One Person Company",
+      title: "One Person Company (ROF)",
       slug: "one-person-company",
-      description: "A One Person Company (OPC) is designed for solo entrepreneurs who want to run a business with limited liability protection. It combines the simplicity of a sole proprietorship with the benefits of a corporate structure.",
+      description: "One Person Company is a business structure where a single individual can form a company with limited liability. It's perfect for solo entrepreneurs who want the benefits of a private limited company without multiple directors or shareholders.",
       category: "registration",
-      image: OnePersonCompany,
+      image: OPC,
     },
     {
-      title: "Sole Proprietorship",
-      slug: "sole-proprietorship",
-      description: "A Sole Proprietorship is the simplest business structure, owned and managed by a single individual. It offers full control over operations, making it ideal for small businesses and startups.",
+      title: "Registered Partnership",
+      slug: "registered-partnership",
+      description: "A Registered Partnership is formed when two or more persons come together to carry on business and share profits. Registration with the Registrar of Firms provides legal recognition and protection under the Indian Partnership Act, 1932.",
       category: "registration",
-      image: Sole,
+      image: Registered,
     },
+
+    // Certificates & Compliances
+
     {
-      title: "GST Compliance",
-      slug: "gst-compliance",
-      description: "GST Compliance helps your business stay fully aligned with Goods and Services Tax regulations. It ensures timely filings, accurate reporting, and avoids penalties, keeping your operations smooth and lawful.",
+      title: "GST Certificate",
+      slug: "gst-certificate",
+      description: "Goods and Services Tax (GST) registration is mandatory for businesses with turnover exceeding ₹40 lakhs (₹20 lakhs for services). It's a unique identification number for businesses to collect tax on behalf of the government and provides legal recognition for interstate trade.",
       category: "compliance",
       image: GST,
     },
     {
-      title: "Tax Filing",
-      slug: "tax-filing",
-      description: "Our Tax Filing services help businesses of all sizes comply with tax regulations efficiently. We ensure accurate returns, timely submissions, and peace of mind for smooth financial management.",
+      title: "Company Compliances",
+      slug: "company-compliances",
+      description: "Company compliances are mandatory statutory requirements that every registered company must fulfill as per the Companies Act, 2013 and other regulations. These include annual filings, board meetings, AGMs, tax returns, and various regulatory submissions to maintain active and legal status.",
       category: "compliance",
-      image: GST,
+      image: Compliance,
     },
     {
-      title: "Annual Compliance",
-      slug: "annual-compliance",
-      description: "Annual Compliance services help your business fulfill all mandatory yearly requirements, ensuring legal and regulatory obligations are met on time. This keeps your entity in good standing and avoids penalties.",
+      title: "Startup India Certificate",
+      slug: "startup-india-certificate",
+      description: "Startup India Certificate is a recognition provided by DPIIT (Department for Promotion of Industry and Internal Trade) to innovative startups. This certification unlocks numerous benefits including tax exemptions, easier compliance, IPR benefits, and access to government funding programs.",
       category: "compliance",
-      image: AnnualCompliance,
+      image: Startup,
     },
     {
-      title: "Seed Funding",
-      slug: "seed-funding",
-      description: "Seed Funding services help early-stage startups secure initial capital to kickstart operations. We assist in preparing proposals, connecting with investors, and navigating the funding process efficiently.",
+      title: "Udyam Certificate/MSME",
+      slug: "udyam-certificate-msme",
+      description: "Udyam Registration (formerly Udyog Aadhaar) is a government recognition for Micro, Small & Medium Enterprises (MSMEs). It's a completely online, paperless process that provides a unique identification number and unlocks numerous benefits including priority sector lending, subsidies, and government scheme access.",
+      category: "compliance",
+      image: MSME,
+    },
+    {
+      title: "Import Export Code",
+      slug: "import-export-code",
+      description: "Import Export Code (IEC) is a 10-digit unique identification number mandatory for any business wanting to import or export goods and services from India. Issued by DGFT (Directorate General of Foreign Trade), it's a lifetime validity code with no renewal requirements.",
+      category: "compliance",
+      image: Code,
+    },
+    {
+      title: "ICEGATE Registration",
+      slug: "icegate-registration",
+      description: "ICEGATE (Indian Customs Electronic Gateway) is the national portal of Indian Customs for electronic filing of import/export documentation. It provides a single-window interface for the trade to interact with Customs and enables online filing of Bills of Entry, Shipping Bills, and other customs documents.",
+      category: "compliance",
+      image: ICEGATE,
+    },
+
+    // Funding Support
+    
+    {
+      title: "Startup India Seedfund",
+      slug: "startup-india-seedfund",
+      description: "The Startup India Seed Fund Scheme (SISFS) provides financial assistance to startups for proof of concept, prototype development, product trials, market entry, and commercialization. The scheme aims to support startups with funding up to ₹50 lakhs to validate their business ideas and achieve key milestones.",
       category: "funding",
-      image: SeedFunding,
+      image: Seed,
     },
     {
-      title: "VC Funding",
-      slug: "vc-funding",
-      description: "VC Funding services help startups and growing businesses connect with venture capitalists to secure growth capital. We assist in pitching, proposal preparation, and navigating investment opportunities.",
+      title: "RKVY-Raftaar",
+      slug: "rkvy-raftaar",
+      description: "Rashtriya Krishi Vikas Yojana - Remunerative Approaches for Agriculture and Allied sector Rejuvenation (RKVY-RAFTAAR) is a government scheme to promote innovation and agri-entrepreneurship. It provides financial support to agri-startups and rural enterprises for innovative projects in agriculture and allied sectors.",
       category: "funding",
-      image: VCFunding,
+      image: RKVY,
     },
     {
-      title: "Business Loans",
-      slug: "business-loans",
-      description: "Business Loans services provide access to funding from various financial institutions, helping businesses meet capital needs for growth, operations, or expansion.",
+      title: "NAIFF",
+      slug: "naiff",
+      description: "National Agriculture Infra Financing Facility (NAIFF) provides medium to long-term debt financing for investment in viable projects for post-harvest management infrastructure and community farming assets. It aims to improve agricultural infrastructure and logistics with interest subvention and credit guarantee support.",
       category: "funding",
-      image: BusinessLoan,
+      image: NAIFF,
     },
     {
-      title: "Website Development",
-      slug: "website-development",
-      description: "Website Development services provide professional, customized websites tailored to your business needs. We focus on design, functionality, and user experience to help your brand stand out online.",
-      category: "digital",
-      image: WebDevelopment,
+      title: "PMEGP",
+      slug: "pmegp",
+      description: "Prime Minister's Employment Generation Programme (PMEGP) is a credit-linked subsidy scheme for setting up new micro-enterprises in manufacturing and service sectors. The scheme provides margin money subsidy ranging from 15% to 35% of project cost to generate employment opportunities.",
+      category: "funding",
+      image: PMEGP,
     },
     {
-      title: "Digital Marketing",
-      slug: "digital-marketing",
-      description: "Digital Marketing services help businesses grow their online presence through targeted strategies across SEO, social media, content, and paid campaigns. We focus on driving engagement, leads, and measurable results.",
-      category: "digital",
-      image: DigitalMarketing,
+      title: "CGTMSE",
+      slug: "cgtmse",
+      description: "Credit Guarantee Fund Trust for Micro and Small Enterprises (CGTMSE) provides collateral-free credit to micro and small enterprises. The scheme guarantees loans extended by banks and financial institutions, enabling entrepreneurs to get loans without pledging property or assets.",
+      category: "funding",
+      image: CGTMSE,
     },
     {
-      title: "E-commerce Setup",
-      slug: "ecommerce-setup",
-      description: "E-commerce Setup services provide end-to-end solutions for creating and integrating your online store. We ensure seamless functionality, secure payments, and an engaging shopping experience for your customers.",
-      category: "digital",
-      image: ECommerce,
+      title: "Mudra Loan",
+      slug: "mudra-loan",
+      description: "Pradhan Mantri Mudra Yojana (PMMY) provides loans to micro and small business units to help them expand and grow. The loans are categorized into three segments - Shishu (up to ₹50,000), Kishore (₹50,000 to ₹5 lakhs), and Tarun (₹5 lakhs to ₹10 lakhs) to cater to different business needs.",
+      category: "funding",
+      image: Mudra,
+    },
+    {
+      title: "Startup Seed Support",
+      slug: "startup-seed-support",
+      description: "Various state and central government seed support schemes provide early-stage funding to startups for validation, prototyping, and initial operations. These schemes offer grants, soft loans, and equity support to innovative startups across different sectors and stages of development.",
+      category: "funding",
+      image: SeedSupport,
+    },
+    {
+      title: "Project Finance",
+      slug: "project-finance",
+      description: "Project Finance is a funding structure based on the cash flows and assets of a specific project rather than the balance sheet of sponsors. It's ideal for large capital-intensive projects in infrastructure, manufacturing, renewable energy, and other sectors requiring substantial investment.",
+      category: "funding",
+      image: Project,
+    },
+    {
+      title: "Venture Capital Funds",
+      slug: "venture-capital-funds",
+      description: "Venture Capital (VC) funding is equity investment in high-growth startups and companies with significant potential. VCs provide not just capital but also strategic guidance, network access, and operational support to help startups scale rapidly and achieve market leadership.",
+      category: "funding",
+      image: VentureCapital,
     },
   ];
 
@@ -378,7 +416,7 @@ function Support() {
       icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
     },
     {
-      label: "Compliance Support",
+      label: "Certificates & Compliances",
       value: "compliance",
       icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
     },
@@ -387,11 +425,11 @@ function Support() {
       value: "funding",
       icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
     },
-    {
-      label: "Digital Transformation",
-      value: "digital",
-      icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-    },
+    // {
+    //   label: "Digital Transformation",
+    //   value: "digital",
+    //   icon: <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+    // },
   ];
 
   const filteredBusinessTypes =
@@ -522,7 +560,7 @@ function Support() {
                 <div className="flex-1 flex flex-col items-center justify-center text-center p-10 relative">
 
                   <div className="max-w-md">
-                    <h3 className="relative text-3xl font-bold text-[#1c4268] mb-8 leading-snug tracking-tight group cursor-pointer">
+                    <h3 className="relative text-3xl font-bold text-[#1c4268] mb-4 leading-snug tracking-tight group cursor-pointer">
                       {displayService.title}
                       {/* Underline */}
                       <span className="absolute left-0 bottom-0 w-0 h-1 bg-gradient-to-r from-[#1c4268] to-[#245586] transition-all duration-300 group-hover:w-full"></span>
