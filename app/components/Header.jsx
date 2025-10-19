@@ -33,7 +33,14 @@ export const Header = () => {
     >
       <div className="flex items-center justify-between h-20 px-6 sm:px-10 lg:px-20">
         {/* Logo */}
-        <a href="/" className="flex-shrink-0">
+        <Image
+          src="/images/whiteLogo.png"
+          alt="Logo"
+          width={160}
+          height={60}
+          className="w-24 sm:w-28 lg:w-52 object-contain"
+        />
+        {/* <a href="/" className="flex-shrink-0">
           <motion.div
             animate={{
               y: [0, -6, 0],
@@ -44,15 +51,9 @@ export const Header = () => {
               ease: "easeInOut",
             }}
           >
-            <Image
-              src="/images/whiteLogo.png"
-              alt="Logo"
-              width={160}
-              height={60}
-              className="w-24 sm:w-28 lg:w-52 object-contain"
-            />
+            
           </motion.div>
-        </a>
+        </a> */}
 
         {/* Right Side */}
         <div className="flex items-center gap-4 md:gap-8">

@@ -160,7 +160,7 @@ export const businessTypes = [
       "Limited Liability Partnership",
       "Registered Partnership"
     ],
-    description: "Enabling solo entrepreneurs to enjoy limited liability, full control, and the benefits of a private limited company.",
+    description: "Empowering solo entrepreneurs with limited liability and complete business control.",
     details: "",
 
     content: {
@@ -229,7 +229,7 @@ export const businessTypes = [
       "Limited Liability Partnership",
       "One Person Company",
     ],
-    description: "A legally recognized structure for two or more partners to share profits, responsibilities, and business growth.",
+    description: "A partnership where partners share profits, duties, and growth.",
     details: "",
 
     content: {
@@ -297,7 +297,7 @@ export const businessTypes = [
       "Startup India Certificate",
       "Udyam Certificate/MSME",
     ],
-    description: "A mandatory tax identification for businesses to collect GST, ensure legal compliance, and facilitate interstate trade.",
+    description: "A tax ID enabling businesses to collect GST, comply with law, and trade interstate.",
     details: "",
 
     content: {
@@ -367,7 +367,7 @@ export const businessTypes = [
       "Udyam Certificate/MSME",
       "Import Export Code",
     ],
-    description: "Mandatory statutory requirements for companies to maintain legal status, transparency, and regulatory adherence.",
+    description: "Key legal requirements for companies to maintain compliance and transparency.",
     details: "",
 
     content: {
@@ -440,7 +440,7 @@ export const businessTypes = [
       "Import Export Code",
       "ICEGATE Registration",
     ],
-    description: "Government recognition that provides startups with tax exemptions, funding access, and easier compliance to foster innovation.",
+    description: "Government recognition granting startups tax benefits, funding, and easier compliance.",
     details: "",
 
     content: {
@@ -509,7 +509,7 @@ export const businessTypes = [
       "ICEGATE Registration",
       "GST Certificate",
     ],
-    description: "Online government recognition providing MSMEs with unique ID, subsidies, priority lending, and scheme benefits.",
+    description: "Online recognition providing MSMEs with a unique ID, subsidies, loans, and scheme advantages.",
     details: "",
 
     content: {
@@ -575,7 +575,7 @@ export const businessTypes = [
       "GST Certificate",
       "Company Compliances",
     ],
-    description: "A mandatory 10-digit license enabling businesses to legally import and export goods and services globally",
+    description: "A required 10-digit license allowing businesses to legally import and export worldwide.",
     details: "",
 
     content: {
@@ -645,7 +645,7 @@ export const businessTypes = [
       "Company Compliances",
       "Startup India Certificate",
     ],
-    description: "A national portal providing a single-window digital interface for seamless electronic filing of import and export customs documents.",
+    description: "A national portal offering a single-window digital system for smooth import and export filings.",
     details: "",
 
     content: {
@@ -716,7 +716,7 @@ export const businessTypes = [
       "NAIFF",
       "PMEGP",
     ],
-    description: "Providing financial assistance up to ₹50 lakhs to help startups develop prototypes, validate ideas, and achieve key growth milestones.",
+    description: "Funding up to ₹50 lakhs to help startups build prototypes, validate ideas, and reach growth milestones.",
     details: "",
 
     content: {
@@ -786,7 +786,7 @@ export const businessTypes = [
       "PMEGP",
       "CGTMSE",
     ],
-    description: "Government support promoting agri-innovation and rural entrepreneurship through financial assistance for innovative agricultural projects.",
+    description: "Government support funding innovative agricultural projects to boost agri-innovation and rural entrepreneurship.",
     details: "",
 
     content: {
@@ -856,7 +856,7 @@ export const businessTypes = [
       "CGTMSE",
       "Mudra Loan",
     ],
-    description: "Providing medium to long-term financing to enhance post-harvest infrastructure and community farming assets with interest subvention and credit support.",
+    description: "Medium- to long-term financing for post-harvest infrastructure and community farming, with interest and credit support.",
     details: "",
 
     content: {
@@ -928,7 +928,7 @@ export const businessTypes = [
       "Mudra Loan",
       "Startup Seed Support",
     ],
-    description: "Credit-linked subsidy scheme supporting the setup of micro-enterprises to generate employment in manufacturing and service sectors.",
+    description: "A credit-linked subsidy scheme aiding micro-enterprises to boost employment in manufacturing and services.",
     details: "",
 
     content: {
@@ -998,7 +998,7 @@ export const businessTypes = [
       "Startup Seed Support",
       "Project Finance",
     ],
-    description: "Providing collateral-free loan guarantees to enable micro and small enterprises to access bank credit without pledging assets.",
+    description: "Collateral-free loan guarantees allowing micro and small enterprises to access bank credit without assets.",
     details: "",
 
     content: {
@@ -1068,7 +1068,7 @@ export const businessTypes = [
       "Project Finance",
       "Venture Capital Funds",
     ],
-    description: "Offering tiered loans—Shishu, Kishore, and Tarun—to support the expansion and growth of micro and small business units.",
+    description: "Tiered loans—Shishu, Kishore, Tarun—supporting the growth of micro and small enterprises.",
     details: "",
 
     content: {
@@ -1149,7 +1149,7 @@ export const businessTypes = [
       "Venture Capital Funds",
       "Startup India Seedfund",
     ],
-    description: "Providing grants, soft loans, and equity support to innovative startups for early-stage validation, prototyping, and operations.",
+    description: "Grants, soft loans, and equity support for startups to validate ideas, prototype, and operate.",
     details: "",
 
     content: {
@@ -1221,7 +1221,7 @@ export const businessTypes = [
       "Startup India Seedfund",
       "RKVY-Raftaar",
     ],
-    description: "Structured funding for capital-intensive projects, relying on project cash flows and assets rather than sponsor balance sheets.",
+    description: "Funding for capital-intensive projects based on project cash flows and assets, not sponsor balance sheets.",
     details: "",
 
     content: {
@@ -1295,7 +1295,7 @@ export const businessTypes = [
       "RKVY-Raftaar",
       "NAIFF"
     ],
-    description: "Providing equity investment, strategic guidance, and network support to help high-growth startups scale rapidly and achieve market leadership.",
+    description: "",
     details: "",
 
     content: {
