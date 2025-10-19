@@ -301,7 +301,6 @@ export default function Hero() {
     const mainCanvas = mainCanvasRef.current;
     const container = canvasContainerRef.current;
 
-    // Set canvas size
     const resizeCanvas = () => {
       const width = container.offsetWidth;
       const height = container.offsetHeight;
@@ -410,13 +409,15 @@ export default function Hero() {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, []);
+  },
+    []
+  );
 
   return (
     <>
       <section className="relative min-h-screen flex items-center justify-center text-white overflow-hidden">
         {/* Fireworks Canvas Background */}
-        <div 
+        <div
           ref={canvasContainerRef}
           className="absolute inset-0 z-0"
           style={{
@@ -424,12 +425,12 @@ export default function Hero() {
             transition: 'transform 0.1s ease-out'
           }}
         >
-          <canvas 
+          <canvas
             ref={trailsCanvasRef}
             className="absolute inset-0 w-full h-full"
             style={{ mixBlendMode: 'lighten' }}
           />
-          <canvas 
+          <canvas
             ref={mainCanvasRef}
             className="absolute inset-0 w-full h-full"
             style={{ mixBlendMode: 'lighten' }}
@@ -472,7 +473,7 @@ export default function Hero() {
           </div>
 
           <p className="max-w-3xl mx-auto text-center text-blue-100/80 text-lg sm:text-xl leading-relaxed mb-12 animate-fadeInUp animation-delay-200 font-light">
-            Business is not a journey — it's an{" "}
+            <p>Business is not a journey — it&apos;s an{" "}adventure.</p>
             <span className="text-white font-semibold">expedition</span>. Every challenge is a mountain; every success opens a{" "}
             <span className="text-white font-semibold">new world</span>.
           </p>
