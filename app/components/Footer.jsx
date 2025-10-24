@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"], weight: ["500", "600", "700"] });
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-[#05325f] text-white">
+    <footer className="bg-gradient-to-b from-[#05325f] to-[#000000] text-white">
       {/* ===== 3-COLUMN MAIN FOOTER ===== */}
       <div className="container mx-auto max-w-7xl px-6 py-16 grid grid-cols-1 md:grid-cols-3 md:gap-20 gap-10">
 
