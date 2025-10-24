@@ -52,7 +52,7 @@ export default function Hero() {
             <div className="h-px w-20 bg-gradient-to-r from-white/50 to-transparent"></div>
           </div>
 
-          <p className="text-white/85 text-base md:text-lg leading-[1.75] max-w-[530px] mx-auto lg:mx-0">
+          <p className="text-white text-base md:text-lg leading-[1.75] max-w-[530px] mx-auto lg:mx-0">
             Let’s connect and explore how we can help your business grow.
             Reach out to us for a free consultation and expert guidance.
           </p>
