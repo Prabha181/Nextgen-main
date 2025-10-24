@@ -56,7 +56,7 @@ export default function Hero() {
           </div>
 
           {/* Description */}
-          <p className="text-white/85 text-base md:text-lg leading-[1.75] text-center lg:text-left max-w-[530px] mx-auto lg:mx-0">
+          <p className="text-white text-base md:text-lg leading-[1.75] text-center lg:text-left max-w-[530px] mx-auto lg:mx-0">
             Revolutionizing consultancy with breakthrough AI technology. We transform visionary ideas into tangible success stories that reshape industries.
           </p>
 
